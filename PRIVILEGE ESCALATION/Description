@@ -1,0 +1,11 @@
+🔐 Privilege Escalation Detection Using Splunk SIEM | Blue Team Analysis
+Sharing my investigation of a privilege escalation attack on a Linux system using Splunk Enterprise.
+🔍 Key Findings:
+1.Sudo Abuse — Identified suspicious accounts (backdoor_user, jsmith) running privileged commands like /bin/chmod, /sbin/iptables, and /usr/bin/passwd.
+2.Rapid Activity — Bucketed sudo events in 5-min windows, catching agreen executing 3 commands in a single window — a sign of scripted escalation.
+3.Sensitive File Access — Detected access to /etc/shadow, /etc/passwd, and /etc/sudoers by jsmith and backdoor_user — classic credential harvesting.
+4.Root Login via Tor — A successful root SSH login from 185.220.101.45 (known Tor exit node) confirmed external compromise.
+🚨 Attack Chain:
+jsmith harvested credentials → backdoor_user established persistence → External actor gained root access via Tor
+🛠 Tools: Splunk | SPL (rex, stats, bucket) | Linux Auth Logs
+💡 Combining sudo monitoring, sensitive file access alerts, and anomalous IP detection gives high-confidence coverage of MITRE ATT&CK T1548.
