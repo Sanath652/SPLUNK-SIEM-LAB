@@ -1,7 +1,0 @@
-🚨 DDoS Attack Detection & Analysis using Splunk 🚨
-Performed hands-on detection and visualization of Distributed Denial of Service (DDoS) attack patterns using Splunk Enterprise. Analyzed suspicious traffic by identifying high-frequency source IPs, targeted URIs, and abnormal request counts through SPL queries, tables, and visual dashboards.
-📌 Key Highlights:
-• Detected top attacking source IPs
-• Monitored high-request URIs and traffic spikes
-• Created dashboards and visualizations for attack analysis
-• Improved understanding of real-time threat monitoring in SOC environments
