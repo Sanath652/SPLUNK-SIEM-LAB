@@ -1,1 +1,15 @@
-
+🛡️ Hands-On with Splunk: Detecting Phishing Attacks in Real Time
+I recently completed a practical lab where I built a phishing email detection pipeline in Splunk Enterprise — and the results were eye-opening.
+Here's what I did:
+🔍 Queried email logs across multiple sourcetypes to extract URLs from email bodies using rex field extraction — isolating anything matching https:// patterns.
+📋 Built a threat intelligence lookup (threat_intel_lookup.csv) containing known malicious URLs tagged by severity (high/critical) and threat type (malware, phishing, ransomware). Saved it directly into Splunk's lookup manager.
+🔗 Correlated live email events with the threat intel using | lookup threat_intel_lookup url AS url OUTPUT is_malicious — instantly flagging emails like the one from malbot@spam.io carrying a malware URL to ivan@company.com.
+📊 Analyzed malicious attachment patterns from Proofpoint gateway logs — identifying dangerous file types (.exe, .js, .hta, .xlsm, .iso, .zip) sent by threat actors like dropper@darkweb-mailer.com and phisher@fakebank.net targeting multiple employees simultaneously.
+📱 Created an interactive Splunk dashboard ("phishing" saved search) with sender/recipient filter inputs — enabling SOC analysts to drill down into specific incidents in seconds.
+Key findings from the lab:
+1 confirmed malicious email flagged is_malicious = true
+Multiple suspicious senders identified (spoofed bank domains, darkweb mailers)
+25 events with dangerous attachments across 10+ attacker domains
+This exercise reinforced how powerful SIEM correlation + threat intel enrichment is for email security monitoring. Even a simple lookup table can turn raw logs into actionable alerts. 🚨
+💡 Tools used: Splunk Enterprise · SPL (Search Processing Language) · Proofpoint log ingestion · Threat Intel Lookup tables
+If you're learning SOC skills or Blue Team techniques, I highly recommend building these detection use cases hands-on — nothing beats seeing a real phishing indicator light up in your search results.
