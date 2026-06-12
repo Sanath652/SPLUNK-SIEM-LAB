@@ -1,0 +1,8 @@
+🔐 SQL Injection Detection & Analysis using Splunk
+Recently, I worked on detecting SQL Injection (SQLi) attacks by analyzing web server logs in Splunk. The dashboard identifies suspicious SQL keywords such as SELECT, UNION, DROP, INSERT, OR 1=1, SLEEP(), and other malicious patterns commonly used by attackers.
+✅ Monitored HTTP requests and URI queries
+✅ Detected encoded and non-encoded SQL injection attempts
+✅ Classified events based on severity (Medium, High, Critical)
+✅ Visualized attack trends and suspicious activities through dashboards
+✅ Improved visibility into potential web application threats
+This exercise helped me gain hands-on experience in log analysis, threat detection, Splunk SPL queries, and web application security monitoring.
